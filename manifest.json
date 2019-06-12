@@ -1,0 +1,30 @@
+{
+   "background": {
+      "persistent": true,
+      "scripts": [ "js/jq.js" ]
+   },
+   "browser_action": {
+      "default_icon": "img/icon32.png",
+      "default_popup": "html/main.html",
+      "default_title": "NoADS"
+   },
+   "content_scripts": [ {
+      "all_frames": false,
+      "js": [ "js/jq.js", "js/content.js" ],
+      "matches": [ "http://www.youtube.com/*", "https://www.youtube.com/*", "https://batepapo.uol.com.br/*" ],
+      "run_at": "document_start"
+   } ],
+   "description": "Block Youtube ADS",
+   "icons": {
+      "128": "img/icon128_2.png",
+      "16": "img/icon16.png",
+      "32": "img/icon32.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlxyAvIHd7qVHTudI+K1FTgbNvaU6dHbLX6L0svIRCHyGagiZtPaau2JdqosdgYlWAWPHYhX979fdkmTWEnH0+fqGCIalq2vJv+6RbBviuD4SJpZDTbaZD2Xv6C1pazDUMG8gj7RRKQYwJVWu2oF2ESkaLemNLMn+cCdcnXXv0Pj5Yx41sNtQ4ObILkx24W4BsoFne1XzS7syMW4XvKLCDnuZiclGC4X8G8SMQis9rVRl57Nj+nr2TPDyQSxXSvlYX4WFGafZ6NxsnYP09Z/0GhQmPgK+uucrrJJvfrVIxsF9ij0GCp4bI/+gNow0gjHyZyuqH0UaPmcZ5nwAU0vW8wIDAQAB",
+   "manifest_version": 2,
+   "name": "NoADS",
+   "permissions": [ "storage", "notifications", "https://www.youtube.com/*", "http://www.youtube.com/*", "https://batepapo.uol.com.br/*", "management", "tabs" ],
+   "short_name": "NoADS",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.0.2"
+}
