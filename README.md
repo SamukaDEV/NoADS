@@ -1,2 +1,2 @@
 # NoADS
-Youtube ADS "Blocker"
+Chrome Extension - Youtube ADS "Blocker"
