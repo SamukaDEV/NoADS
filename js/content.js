@@ -1,50 +1,23 @@
-// chrome.extension.onRequest.addListener(
-//     function(request, sender, sendResponse) {
-//         if(request.method == "getText"){
-//             sendResponse({data: document.getElementById("Cookie_container").innerText, method: "getText"}); 
-//         }
-//     }
-// );
+const yt_div = document.querySelector('.ytp-left-controls')
+const div = document.createElement('div')
+div.classList.add('ytp-time-display')
+div.innerHTML = '<span>Active</span>'
+yt_div.append(div)
 
-function xst(obj){
-	let a = null
-	typeof(obj) == "object" ? a = true : a = false;
-	return a
-}
+let _tmr_sda = setInterval(() => {
+    const overlay_slot = document.querySelector('.ytp-ad-overlay-slot')
+    const skip_button = document.querySelector('.ytp-ad-skip-button')
+    const progress_dot = document.querySelector('.ytp-ad-progress')
 
-$(document).ready(function(){
-	console.log('NoADS 1.0.2');
-	let _div = document.createElement('div')
-	_div.classList.add('ytp-time-display')
-	_div.innerHTML = '<span>NoADS Active</span>'
-	$('.ytp-left-controls').append(_div)
+    const uol_topside = document.querySelector('.header__desktop-banner___1c05')
+    const uol_botside = document.querySelector('#bp-footer > div > div.col-md-9.hidden-xs.ads__wrapper___dTcn')
+    const uol_fbook = document.querySelector('#bp-footer > div > div.col-xs-2.col-sm-2.col-md-2.col-lg-2.hidden-xs > div:nth-child(2) > div')
 
-	var smk_timer = setInterval(function(){
-		let overlay_slot = $('.ytp-ad-overlay-slot'), //.remove(); // this is the bottom window ads
-			skip_button  = $('.ytp-ad-skip-button'), //.click(); // this is the video ads
-			progress_dot = $('.ytp-ad-progress'),//.remove(); // this is the video timeline yellow dot
+    if (overlay_slot) overlay_slot.remove()
+    if (skip_button) skip_button.click()
+    if (progress_dot) progress_dot.remove()
 
-			uol_topside = $('.header__desktop-banner___1c05'),
-			uol_botside = $('#bp-footer > div > div.col-md-9.hidden-xs.ads__wrapper___dTcn'),
-			uol_fbook   = $('#bp-footer > div > div.col-xs-2.col-sm-2.col-md-2.col-lg-2.hidden-xs > div:nth-child(2) > div'); 
-
-		if(xst(overlay_slot))
-			overlay_slot.remove()
-
-		if(xst(skip_button))
-			skip_button.click()
-
-		if(xst(progress_dot))
-			progress_dot.remove();
-		
-		if(xst(uol_topside))
-			uol_topside.remove();
-
-		if(xst(uol_botside))
-			uol_botside.remove();
-
-		if(xst(uol_fbook))
-			uol_fbook.remove();
-
-	}, 200);
-});
+    if (uol_topside) uol_topside.remove()
+    if (uol_botside) uol_botside.remove()
+    if (uol_fbook) uol_fbook.remove()
+}, 100)
